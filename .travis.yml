@@ -1,0 +1,25 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t papiyinks/birdboard-test -f Dockerfile .
+script:
+  - docker run papiyinks/birdboard-test vendor/bin/phpunit
+# after_success:
+#   - docker build -t papiyinks/birdboard-app .
+#   - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+#   - docker push papiyinks/birdboard-app
+
+# deploy:
+#   provider: elasticbeanstalk
+#   region: eu-west-2
+#   app: birdboard
+#   env: Birdboard-env
+#   bucket_name: elasticbeanstalk-eu-west-2-292676312213
+#   bucket_path: birdboard-docker
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_ID
+#   secret_access_key:
+#     secure: $AWS_SECRET_KEY
