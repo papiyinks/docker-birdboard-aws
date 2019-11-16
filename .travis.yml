@@ -14,11 +14,11 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  region: eu-west-2
+  region: us-east-1
   app: birdboard
   env: Birdboard-env
-  bucket_name: elasticbeanstalk-eu-west-2-292676312213
-  bucket_path: birdboard-docker
+  bucket_name: elasticbeanstalk-us-east-1-292676312213
+  bucket_path: birdboard-cli
   on:
     branch: master
   access_key_id: $AWS_ACCESS_ID
